@@ -7,6 +7,7 @@ firebase.database().ref('todos').on('child_added',function(data){
 
     // create delete button
     var delBtn = document.createElement("button")
+    delBtn.style= "margin-right:20px;margin-left:20px"
     var delText = document.createTextNode("DELETE")
     delBtn.setAttribute("class", "btn")
     delBtn.setAttribute('id',data.val().key)
