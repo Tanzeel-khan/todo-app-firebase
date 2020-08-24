@@ -6,8 +6,8 @@ firebase.database().ref('todos').on('child_added',function(data){
     li.appendChild(liText)
 
     // create delete button
-    var delBtn = document.createElement("button")
-    delBtn.style= "margin-right:20px;margin-left:20px"
+    var delBtn = document.createElement("a")
+    delBtn.style= "margin-right:20px;margin-left:200px"
     var delText = document.createTextNode("DELETE")
     delBtn.setAttribute("class", "btn")
     delBtn.setAttribute('id',data.val().key)
@@ -15,16 +15,19 @@ firebase.database().ref('todos').on('child_added',function(data){
     delBtn.appendChild(delText)
 
     // create edit button
-    var editBtn = document.createElement("button");
+    var editBtn = document.createElement("a");
     var editText = document.createTextNode("EDIT")
+    editBtn.setAttribute("class", "btn")
     editBtn.appendChild(editText)
     editBtn.setAttribute('id',data.val().key)
     editBtn.setAttribute("onclick", "editItem(this)")
 
     li.appendChild(delBtn)
     li.appendChild(editBtn)
-
+   
     list.appendChild(li)
+    var breaks = document.createElement("br");
+    li.appendChild(breaks)
 });
 function addTodo() {
     var todo_item = document.getElementById("todo-item");
